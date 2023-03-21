@@ -10,6 +10,7 @@
   --navy-blue-modal: #2e2f42;
   --grey: #2e2f42;
   --white: #ffffff;
+  --cub-baz: cubic-bezier(0.4, 0, 0.2, 1);
 }
 h1,
 h2,
@@ -75,6 +76,7 @@ body {
 .link {
   text-decoration: none;
   color: inherit;
+  transition: color 250 ms var(--cub-baz);
 }
 
 .btn {
@@ -86,6 +88,8 @@ body {
   cursor: pointer;
   border: none;
   display: block;
+  transition: background-color 250ms var(--cub-baz), color 250ms var(--cub-baz),
+    box-shadow 250ms var(--cub-baz);
 }
 
 .btn:hover,
@@ -95,7 +99,6 @@ body {
   border-color: transparent;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-
 }
 
 .tittle {
@@ -127,6 +130,7 @@ body {
   margin-right: 76px;
   padding-top: 24px;
   padding-bottom: 24px;
+  transition: color 250ms var(--cub-baz);
 }
 
 .header-logo:is(:hover, :focus) {
@@ -138,8 +142,6 @@ body {
 .header-list {
   display: flex;
   gap: 40px;
-  padding-top: 24px;
-  padding-bottom: 24px;
 }
 
 .header-item {
@@ -150,31 +152,50 @@ body {
 }
 .header-link {
   display: block;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  transition: color 250ms var(--cub-baz);
 }
 
 .header-link:is(:hover, :focus) {
-   color: var(--okean);
+  color: var(--okean);
 }
 
-.header-adress {
+.current {
+  color: var(--okean);
+  position: relative;
 }
-.adress {
+.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--okean);
+}
+
+.contact {
   display: flex;
-  margin-left: auto;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  font-style: normal;
 }
 .contact-list {
   display: flex;
   gap: 40px;
 }
-.contact-item {
+.contact-link {
+  display: block;
+  margin-left: auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
   line-height: 1.5;
   color: var(--slate);
-}
+  transition: color 250 ms var(--cub-baz);
+  }
 
-.contact-item:is(:hover, :focus) {
-   color: var(--okean);
+.contact-link:is(:hover, :focus) {
+  color: var(--okean);
 }
 /*=============/HEADER=============*/
 
@@ -217,8 +238,6 @@ body {
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
-
-
 /*=============/HERO=============*/
 
 /*=============PRIORITETS=============*/
@@ -244,12 +263,11 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 8px;
-   border-radius: 4px;
+  border-radius: 4px;
 }
 .prioritets-icons-items {
   width: 64px;
   height: 64px;
- 
 }
 .prioritets-item-title {
   font-weight: 500;
@@ -298,7 +316,7 @@ body {
 }
 
 .team-social-item {
-fill: var(--cloud);
+  fill: var(--cloud);
   width: 40px;
   height: 40px;
 }
@@ -311,7 +329,8 @@ fill: var(--cloud);
   color: var(--cloud);
   background-color: var(--iris);
   border-radius: 50%;
-  
+  transition: background-color 250ms var(--cub-baz),
+    border-radius 250ms var(--cub-baz);
 }
 .team-social-link:is(:hover, :focus) {
   background-color: var(--okean);
@@ -390,7 +409,6 @@ fill: var(--cloud);
 .customers-item {
   width: 168px;
   height: 88px;
-  
 }
 
 .customers-link {
@@ -403,6 +421,7 @@ fill: var(--cloud);
   border: 1px solid var(--light-slate);
   border-radius: 4px;
   background-color: var(--white);
+  transition: color 250ms var(--cub-baz), border-color 250ms var(--cub-baz);
 }
 
 .customers-link:is(:hover, :focus) {
@@ -465,10 +484,10 @@ fill: var(--cloud);
   display: block;
 }
 .benefits-link:is(:hover, :focus) {
-    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
-  0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
-.benefits-wrapper{
+.benefits-wrapper {
   position: relative;
   overflow: hidden;
 }
@@ -480,15 +499,15 @@ fill: var(--cloud);
   height: 100%;
   overflow: auto;
   transform: translate(0, 100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-font-family: 'Roboto';
-font-weight: 400;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: 0.02em;
-color: var(--cloud);  
-background-color: var(--iris);
-padding: 40px 32px 164px 32px;
+  transition: transform 250ms var(--cub-baz);
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--cloud);
+  background-color: var(--iris);
+  padding: 40px 32px 164px 32px;
 }
 .benefits-title-text {
   background-color: var(--white);
@@ -562,7 +581,6 @@ padding: 40px 32px 164px 32px;
 .footer-social-item {
   width: 40px;
   height: 40px;
-
 }
 .footer-social-link {
   width: 100%;
@@ -571,7 +589,7 @@ padding: 40px 32px 164px 32px;
   justify-content: center;
   align-items: center;
   fill: var(--white);
-    background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
 }
 
@@ -584,3 +602,73 @@ padding: 40px 32px 164px 32px;
 }
 
 /*=============/FOOTER=============*/
+/*============= MODAL WINDOW=============*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms var(--cub-baz), visibility 250ms var(--cub-baz);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 408px;
+  height: 576px;
+  background-color: rgb(252, 252, 252);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 24px;
+  transition: transform 250ms var(--cub-baz);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background-color: transparent;
+  border: 1px solid var(--cornflower);
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 250ms var(--cub-baz);
+}
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: var(--okean);
+}
+.modal-close-btn:hover .modal-close-btn-icon,
+.modal-close-btn:focus .modal-close-btn-icon {
+  fill: var(--white);
+}
+.modal-close-btn-icon {
+  width: 8px;
+  height: 8px;
+  transition: fill 250ms var(--cub-baz);
+}
+/*=============/MODAL WINDOW=============*/
