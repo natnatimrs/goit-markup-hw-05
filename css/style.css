@@ -76,7 +76,6 @@ body {
 .link {
   text-decoration: none;
   color: inherit;
-  transition: color 250 ms var(--cub-baz);
 }
 
 .btn {
@@ -89,7 +88,7 @@ body {
   border: none;
   display: block;
   transition: background-color 250ms var(--cub-baz), color 250ms var(--cub-baz),
-    box-shadow 250ms var(--cub-baz);
+    box-shadow 250ms var(--cub-baz), border-color 250ms var(--cub-baz);
 }
 
 .btn:hover,
@@ -191,7 +190,7 @@ body {
   padding-bottom: 24px;
   line-height: 1.5;
   color: var(--slate);
-  transition: color 250 ms var(--cub-baz);
+  transition: color 250ms var(--cub-baz);
   }
 
 .contact-link:is(:hover, :focus) {
@@ -225,7 +224,7 @@ body {
 
 .modal-btn {
   min-width: 169px;
-  height: 56px;
+  min-height: 56px;
   color: inherit;
   background-color: var(--iris);
   font-family: "Roboto", sans-serif;
@@ -482,6 +481,8 @@ body {
 
 .benefits-link {
   display: block;
+  transition: box-shadow 250ms var(--cub-baz);
+
 }
 .benefits-link:is(:hover, :focus) {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
@@ -501,13 +502,12 @@ body {
   transform: translate(0, 100%);
   transition: transform 250ms var(--cub-baz);
   font-family: "Roboto";
-  font-weight: 400;
-  font-size: 16px;
+    font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--cloud);
   background-color: var(--iris);
-  padding: 40px 32px 164px 32px;
+  padding: 40px 32px;
 }
 .benefits-title-text {
   background-color: var(--white);
@@ -591,6 +591,7 @@ body {
   fill: var(--white);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+  transition: background-color 250ms var(--cub-baz);
 }
 
 .footer-social-link:is(:hover, :focus) {
